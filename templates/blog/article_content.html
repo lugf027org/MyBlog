@@ -1,0 +1,88 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'Blog/code.css' %}">
+    <section class="section brd-btm">
+        <div class="row">
+            <div class="col-sm-12 clear-mrg text-box">
+
+                <h2 class="title-lg text-upper">
+
+                    {{ context.1.文章标题|safe }}
+                </h2>
+
+                <p>时间：{{ context.1.发布时间 }}<br>
+                    摘要：{{ context.1.文章摘要 }}<br>
+                    {{ context.1.正文内容|safe }}
+                </p>
+            </div>
+        </div>
+    </section><!-- .section -->
+    </div>
+
+    <!-- END: PAGE CONTENT -->
+
+    </div><!-- .ace-paper-cont -->
+    </main><!-- .ace-paper -->
+    </div><!-- .ace-paper-stock -->
+
+    </div><!-- .ace-container -->
+    </div><!-- #ace-content -->
+
+    <div id="ace-sidebar">
+        <button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade">
+            <span class="ace-icon ace-icon-close"></span>
+        </button>
+
+        <div id="ace-sidebar-inner">
+
+
+            <!--article id="ace-card" class="ace-card bg-primary">
+                <div class="ace-card-inner text-center">
+                    <img class="avatar avatar-195" src="{% static 'Blog/img/uploads/my_tmp/195_195.png' %}" width="195"
+                         height="195" alt="">
+                    <h1>Lu GF</h1>
+                    <p class="text-muted">What is dead <br/>maybe never die</p>
+                    <ul class="ace-social clear-list">
+                        <li><a><span class="ace-icon ace-icon-qq"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-wechat"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-weibo"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-facebook"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-twitter"></span></a></li>
+                    </ul>
+                </div>
+
+
+            </article--><!-- #ace-card -->
+
+
+            <aside class="widget-area">
+                <section class="widget widget_search">
+
+                    <form role="search" method="get" class="search-form" action="/search/">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Search" value="" name="keyword">
+                        </label>
+                        <button type="submit" class="search-submit">
+                            <span class="screen-reader-text">Search</span>
+                            <span class="ace-icon ace-icon-search"></span>
+                        </button>
+                    </form>
+
+                </section>
+
+                <section class="widget widget_categories">
+                    <h4 class="widget-title">文章 分类</h4>
+                    <ul>
+                        {% for k,v in context.0.items %}
+                            <li class="cat-item"><a href="/search/?keyword={{ k }}">{{ k }}</a>{{ v }}</li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </aside>
+
+        </div><!-- #ace-sidebar-inner -->
+    </div><!-- #ace-sidebar -->
+
+{% endblock %}

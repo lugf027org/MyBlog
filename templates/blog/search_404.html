@@ -1,0 +1,87 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% load static %}
+
+    <div class="padd-box-sm">
+        <header class="search-for">
+            <h1 class="search-title"> 查 询 结 果 for:
+            <span>{{ context.1 }}</span></h1>
+        </header>
+        <div class="search-result">
+            <strong class="title-lg text-upper">nothing found</strong>
+            <form class="search-again" action="/search/">
+                <div class="form-item-wrap">
+                    <input class="form-item" id="searchInput" name="keyword" type="search" placeholder="Search" value="" size="30" maxlength="80" required="required">
+                </div>
+                <div class="form-submit form-item-wrap">
+                    <input class="btn btn-primary" name="submit" type="submit" id="submit" value="Try Again">
+                </div>
+            </form>
+        </div>
+    </div>
+
+                        <!-- END: PAGE CONTENT -->
+
+                    </div><!-- .ace-paper-cont -->
+                </main><!-- .ace-paper -->
+            </div><!-- .ace-paper-stock -->
+
+        </div><!-- .ace-container -->
+    </div><!-- #ace-content -->
+
+    <div id="ace-sidebar">
+        <button id="ace-sidebar-close" class="btn btn-icon btn-light btn-shade">
+            <span class="ace-icon ace-icon-close"></span>
+        </button>
+
+        <div id="ace-sidebar-inner">
+
+
+            <!--article id="ace-card" class="ace-card bg-primary">
+                <div class="ace-card-inner text-center">
+                    <img class="avatar avatar-195" src="{% static 'Blog/img/uploads/my_tmp/195_195.png' %}" width="195"
+                         height="195" alt="">
+                    <h1>Lu GF</h1>
+                    <p class="text-muted">What is dead <br/>maybe never die</p>
+                    <ul class="ace-social clear-list">
+                        <li><a><span class="ace-icon ace-icon-qq"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-wechat"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-weibo"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-facebook"></span></a></li>
+                        <li><a><span class="ace-icon ace-icon-twitter"></span></a></li>
+                    </ul>
+                </div>
+            </article--><!-- #ace-card -->
+
+
+            <aside class="widget-area">
+                <section class="widget widget_search">
+
+                    <form role="search" method="get" class="search-form" action="/search/">
+                        <label>
+                            <span class="screen-reader-text">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Search" value="" name="keyword">
+                        </label>
+                        <button type="submit" class="search-submit">
+                            <span class="screen-reader-text">Search</span>
+                            <span class="ace-icon ace-icon-search"></span>
+                        </button>
+                    </form>
+
+                </section>
+
+                <section class="widget widget_categories">
+                    <h4 class="widget-title">文章 分类</h4>
+                    <ul>
+                        {% for k,v in context.0.items %}
+                            <li class="cat-item"><a href="/search/?keyword={{ k }}">{{ k }}</a>{{ v }}</li>
+                        {% endfor %}
+
+                    </ul>
+                </section>
+            </aside>
+
+        </div><!-- #ace-sidebar-inner -->
+    </div><!-- #ace-sidebar -->
+
+{% endblock %}
